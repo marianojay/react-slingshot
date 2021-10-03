@@ -66,5 +66,9 @@ workflows:
     # Run the save job in its own container
     jobs:
       - build
-      - test
-      - analyze
+      - test:
+          requires: 
+            -  build
+      - analyze:
+          requires:
+            - test
